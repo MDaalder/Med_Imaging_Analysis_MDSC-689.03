@@ -1,6 +1,6 @@
 # MDSC-689.03
-Code and environment for MDSC 689.03 Medical Imaging Analysis Course
-Use terminal for Mac, or Command Prompt for Windows (Anaconda Prompt may be better!!)
+- Code and environment for MDSC 689.03 Medical Imaging Analysis Course
+- Use terminal for Mac, or Command Prompt for Windows (Anaconda Prompt may be better!!)
 
 ## Setting up the environment:
 
