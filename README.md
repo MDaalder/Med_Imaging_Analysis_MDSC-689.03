@@ -1,12 +1,13 @@
 # MDSC-689.03
 - Code and environment for MDSC 689.03 Medical Imaging Analysis Course
-- Use terminal for Mac, or Command Prompt for Windows (Anaconda Prompt may be better!!)
+- Use terminal on Mac or Command Prompt on Windows for conda (Anaconda Prompt may be better!!)
+- Git Bash will have to be used for `git` commands on Windows PC
 
 ## Setting up the environment:
 
 1. Install Anaconda with the latest Python 3.0 version
 2. Create a directory for the code base i.e. /Users/Courses/MDSC 689.03 and navigate to that directory
-3. In the terminal or Command Prompt (Anaconda Prompt may be better), run `git clone <git url>`
+3. In the terminal or Git Bash, run `git clone <git url>`
 4. Run `conda env create -f environment.yml` to create the conda environment (called imaging) while in the same directory as 2 and 3
 5. Activate course environment with `conda activate imaging`
 6. Deactivate the course environment with `conda deactivate`
