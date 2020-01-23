@@ -25,10 +25,18 @@ Create virtual environments and add packages
   - `conda create -n <env name> python=3`
   
   #### Install vtk package and others (ITK, pydicom)
-  - `<env name>conda install vtk`
-  - `<env name>conda install -c conda-forge itk`
-  - `<env name>conda install -c conda-forge pydicom`
+  - `<env name>$ conda install vtk`
+  - `<env name>$ conda install -c conda-forge itk`
+  - `<env name>$ conda install -c conda-forge pydicom`
   
   #### Deactivate Environment
   - `<env name>conda deactivate`
+  
+  ### Check Installation
+  - `conda activate <env name>`
+  - `<env name>$ python`
+  - `import vtk`
+  - `print(vtk.vtkVersion.GetVTKSourceVersion())`
+  - 'vtk version 8.2.0'
+  
   
