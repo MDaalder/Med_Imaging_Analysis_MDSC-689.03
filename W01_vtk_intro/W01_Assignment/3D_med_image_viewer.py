@@ -181,7 +181,4 @@ def displayImages(reader):
 
 reader = readImages()
 
-# imagePathN = '/Users/MattD/Projects/courses/MDSC-689.03/W01_vtk_intro/W01_Assignment/NIFTI/head.nii'
-# imagePathD = '/Users/MattD/Projects/courses/MDSC-689.03/W01_vtk_intro/W01_Assignment/DICOM/Hip'
-
 displayImages(reader)
