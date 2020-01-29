@@ -200,11 +200,11 @@ def displayImages(reader):
     return()
 
 # apply a 3D gaussian filter to an image.
-# input image is of type NIFTIImageReader or DICOMImageReader
+# input image (inputReader) is of type NIFTIImageReader or DICOMImageReader
 # or possibly just an image????
-def gaussSmooth(image):
+def gaussSmooth(inputReader):
     
-    imageName = image.GetFileName()
+    imageName = inputReader.GetFileName()
     outfile = str(os.path.splitext(imageName)[0]) + '_GaussianSmoothed.nii'
     outpath = os.path.join(os.getcwd(), outfile)
     
@@ -213,7 +213,7 @@ def gaussSmooth(image):
     
     # make a copy of the input image(s) to work with and maintain original data
     copyImage = vtk.vtkImageData()
-    copyImage.DeepCopy(reader.GetOutput()) 
+    copyImage.DeepCopy(inputReader.GetOutput()) 
     
     # apply the kernel to smooth the image
     
