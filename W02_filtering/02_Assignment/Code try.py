@@ -32,8 +32,30 @@ print('\nOutpath:  ' + outpath + '\n')
 copyImage = vtk.vtkImageData()
 copyImage.DeepCopy(inputReader.GetOutput()) 
 
-    
-# 3D Gaussian kernel # do I have to divide by the sum of the matrix elements to normalize? i.e. 16
+# get the image dimensions
+imageDim = inputImageData.GetDimensions()
+print(imageDim)
+imageExt = inputImageData.GetExtent()
+print(imageExt)
+print(len(imageExt))
+kernelDim = 3 # could make this an input arg in the future
+
+imageDim = np.empty(len(imageExt), dtype=int)
+# imageDimMin = np.empty(3, dtype = int)
+# imageDimMax = np.empty(3, dtype = int)
+
+
+for i in range(0, len(imageDim)):
+    imageDim[i] = imageExt[i] + 1
+
+# for i in range(0,len(imageExt),2): # 0 to  by twos (gets all even numbers for x y z min coords)
+#     imageDimMin[i] = imageExt[i]+1
+# for i in range(1,(len(imageExt)+1),2): # 1 to 5 by twos to get all uneven numbers for x y z max coords
+#     imageDimMax[i] = imageExt[i]-1
+
+print(imageDim)
+
+# 3D Gaussian kernel
 kernel = np.array([[[1, 2, 1], [2, 4, 2], [1, 2, 1]], 
                    [[2, 4, 2], [4, 16, 4], [2, 4, 2]], 
                    [[1, 2, 1], [2, 4, 2], [1, 2, 1]]])
@@ -41,15 +63,20 @@ kernel = np.array([[[1, 2, 1], [2, 4, 2], [1, 2, 1]],
 # kernelNormal normalizes each entry in the array. If all normalized entries are summed, the answer is 1.0
 kernelNormal = kernel/np.sum(kernel)
 
-# gives the value of the central voxel by summing all the values from the kernelNormal*imageArray convolution
-# this is the blurring or smoothing step
-voxelBlur = np.sum(kernelNormal*imageArray)
+
 
 
     
 for x in range(0, image.GetDimensions()[0]):
     for y in range(0, image.GetDimensions()[1]):
         for z in range(0, image.GetDimensions()[2]):
+            
+            
+            # gives the value of the central voxel by summing all the values from the kernelNormal*imageArray convolution
+            # this is the blurring or smoothing step
+            voxelBlur = np.sum(kernelNormal*imageArray)
+            
+            
             voxelValue = image.GetScalarComponentAsFloat(x,y,z,0)
             image.SetScalarComponentFromFloat(x, y, z, 0, voxelValue)
 
