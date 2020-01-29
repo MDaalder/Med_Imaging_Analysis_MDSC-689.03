@@ -154,6 +154,7 @@ def displayImages(reader):
     iren = vtk.vtkRenderWindowInteractor()
     iren.SetRenderWindow(renWin)
     
+    
     # function to change projected image slice with key press
     # to-do: make sure displayed slice meets this criteria: minSlice <= currentSlice <= maxSlice
     # to-do: change window and color level with mouse drag or left/right key press

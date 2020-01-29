@@ -13,7 +13,7 @@ import sys
 import vtk
 
 # Parse command line arguments for a file
-imagefile = "head.nii"
+imagefile = input("Please input nifti file or DICOM folder: ") #"head.nii"
 if (len(sys.argv) == 2):
 	imagefile = sys.argv[1]
 else:
